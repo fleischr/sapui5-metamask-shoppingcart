@@ -141,6 +141,9 @@ sap.ui.define([
 			var selectedKey = this.getModel().getProperty("/SelectedPayment");
 			var oElement = this.byId("paymentTypeStep");
 			switch (selectedKey) {
+				case "Crypto":
+					oElement.setNextStep(this.byId("cryptoStep"));
+					break;
 				case "Bank Transfer":
 					oElement.setNextStep(this.byId("bankAccountStep"));
 					break;
@@ -231,6 +234,9 @@ sap.ui.define([
 			this._clearMessages();
 			var sWizardStepId = oEvent.getSource().getId();
 			switch (sWizardStepId) {
+			case this.createId("cryptoStep"):
+				this.checkCryptoStep();
+				break;
 			case this.createId("creditCardStep"):
 				this.checkCreditCardStep();
 				break;
@@ -265,6 +271,13 @@ sap.ui.define([
 		*/
 		checkInvoiceStep: function () {
 			this._checkStep("invoiceStep", ["invoiceAddressAddress", "invoiceAddressCity", "invoiceAddressZip", "invoiceAddressCountry"]);
+		},
+
+		/**
+		 * Validates the crypto step initally and after each input
+		 */
+		checkCryptoStep: function () {
+			this._checkStep("cryptoStep",[]);
 		},
 
 		/**

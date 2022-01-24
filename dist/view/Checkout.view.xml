@@ -119,6 +119,10 @@
 												id="payViaCOD"
 												key="Cash on Delivery"
 												text="{i18n>checkoutPaymentCod}"/>
+											<SegmentedButtonItem
+												id="payViaCrypto"
+												key="Crypto"
+												text="{i18n>checkoutCrypto}"/>
 										</items>
 									</SegmentedButton>
 								</HBox>
@@ -268,6 +272,32 @@
 								</layout:Grid>
 							</Panel>
 						</WizardStep>
+						<!-- Metamask/Crypto mod start-->
+						<WizardStep
+							id="cryptoStep"
+							title="{i18n>checkoutCryptoitle}"
+							nextStep="invoiceStep"
+							icon="sap-icon://official-service">
+							<Panel>
+								<layout:Grid
+									defaultSpan="L6 M6 S10"
+									hSpacing="2">
+									<Label
+										text="{i18n>checkoutBankAccountName}"
+										design="Bold"/>
+									<Label text="{i18n>beneficiaryNameText}"/>
+									<Label
+										text="{i18n>checkoutBankAccountBank}"
+										design="Bold"/>
+									<Label text="{i18n>bankNameText}"/>
+									<Label
+										text="{i18n>checkoutBankAccountNumber}"
+										design="Bold"/>
+									<Label text="{i18n>accountNumberText}"/>
+								</layout:Grid>
+							</Panel>
+						</WizardStep>
+						<!-- Metamask/Crypto mod end-->
 						<WizardStep
 							id="cashOnDeliveryStep"
 							title="{i18n>checkoutCodTitle}"

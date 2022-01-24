@@ -141,6 +141,9 @@ sap.ui.define([
 			var selectedKey = this.getModel().getProperty("/SelectedPayment");
 			var oElement = this.byId("paymentTypeStep");
 			switch (selectedKey) {
+				case "Crypto":
+					oElement.setNextStep(this.byId("cryptoStep"));
+					break;
 				case "Bank Transfer":
 					oElement.setNextStep(this.byId("bankAccountStep"));
 					break;
