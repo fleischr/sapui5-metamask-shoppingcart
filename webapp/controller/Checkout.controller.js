@@ -31,8 +31,13 @@ sap.ui.define([
 		formatter: formatter,
 
 		onInit: function () {
+			//check if metamask is installed
+			var isMetamaskInstalled = this._isMetamaskInstalled();
+			
+
 			var oModel = new JSONModel(
 				{
+					MetamaskInstalled: isMetamaskInstalled,
 					SelectedPayment: "Credit Card",
 					SelectedDeliveryMethod: "Standard Delivery",
 					DifferentDeliveryAddress: false,
@@ -61,7 +66,13 @@ sap.ui.define([
 						CardNumber: "",
 						SecurityCode: "",
 						Expire: ""
-					}
+					},
+					Stablecoins: [
+						{ticker: "USDC", contractid: "0xa"},
+						{ticker: "DAI", contractid: "0xb"},
+						{ticker: "UST", contractid: "0xc"},
+						{ticker: "MIM", contractid: "0xd"}
+					]
 				}),
 				oReturnToShopButton = this.byId("returnToShopButton");
 
@@ -442,6 +453,10 @@ sap.ui.define([
 
 			oNavContainer.attachAfterNavigate(_fnAfterNavigate);
 			oNavContainer.to(this.byId("wizardContentPage"));
+		},
+		_isMetamaskInstalled: function() {
+			const { ethereum } = window;
+			return Boolean(ethereum && ethereum.isMetaMask);
 		}
 	});
 });

@@ -275,13 +275,24 @@
 						<!-- Metamask/Crypto mod start-->
 						<WizardStep
 							id="cryptoStep"
-							title="{i18n>checkoutCryptoitle}"
+							title="{i18n>checkoutCryptoTitle}"
 							nextStep="invoiceStep"
 							icon="sap-icon://official-service">
+							<Button id="walletConnect" text="Connect Wallet" />
 							<Panel>
 								<layout:Grid
 									defaultSpan="L6 M6 S10"
 									hSpacing="2">
+									<ComboBox
+										items="{
+											path: '/Stablecoins',
+												sorter: { path: 'ticker' }
+										}">
+										<core:Item key="{contractid}" text="{ticker}" />
+									</ComboBox>
+									<Label 
+										text="Balance: 69.69"
+										design="Bold" />
 									<Label
 										text="{i18n>checkoutBankAccountName}"
 										design="Bold"/>
