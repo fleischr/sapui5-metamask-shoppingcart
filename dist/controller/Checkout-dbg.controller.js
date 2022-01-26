@@ -31,8 +31,17 @@ sap.ui.define([
 		formatter: formatter,
 
 		onInit: function () {
+			//check if metamask is installed
+			var isMetamaskInstalled = this._isMetamaskInstalled();
+			var metamaskConnectionStatus = this._setMetamaskInitConnectStatus(isMetamaskInstalled);
+			
+
 			var oModel = new JSONModel(
 				{
+					MetamaskInstalled: isMetamaskInstalled,
+					ConnectionStatus: metamaskConnectionStatus,
+					UserWalletAddress: "",
+					SelectedCryptoNetwork: "Kovan", //TODO add additional testnets/mainnets
 					SelectedPayment: "Credit Card",
 					SelectedDeliveryMethod: "Standard Delivery",
 					DifferentDeliveryAddress: false,
@@ -61,7 +70,13 @@ sap.ui.define([
 						CardNumber: "",
 						SecurityCode: "",
 						Expire: ""
-					}
+					},
+					Stablecoins: [
+						{ticker: "USDC", contractid: "0xa"},
+						{ticker: "DAI", contractid: "0xb"},
+						{ticker: "UST", contractid: "0xc"},
+						{ticker: "MIM", contractid: "0xd"}
+					]
 				}),
 				oReturnToShopButton = this.byId("returnToShopButton");
 
@@ -234,6 +249,9 @@ sap.ui.define([
 			this._clearMessages();
 			var sWizardStepId = oEvent.getSource().getId();
 			switch (sWizardStepId) {
+			case this.createId("cryptoStep"):
+				this.checkCryptoStep();
+				break;
 			case this.createId("creditCardStep"):
 				this.checkCreditCardStep();
 				break;
@@ -268,6 +286,13 @@ sap.ui.define([
 		*/
 		checkInvoiceStep: function () {
 			this._checkStep("invoiceStep", ["invoiceAddressAddress", "invoiceAddressCity", "invoiceAddressZip", "invoiceAddressCountry"]);
+		},
+
+		/**
+		 * Validates the crypto step initally and after each input
+		 */
+		checkCryptoStep: function () {
+			this._checkStep("cryptoStep",[]);
 		},
 
 		/**
@@ -335,6 +360,13 @@ sap.ui.define([
 		onReturnToShopButtonPress: function () {
 			this._setLayout("Two");
 			this.getRouter().navTo("home");
+		},
+
+		/*
+		* 
+		*/
+		onMetamaskConnect: function () {
+			console.log("connecting metamask");
 		},
 
 		// *** the following functions are private "helper" functions ***
@@ -432,6 +464,21 @@ sap.ui.define([
 
 			oNavContainer.attachAfterNavigate(_fnAfterNavigate);
 			oNavContainer.to(this.byId("wizardContentPage"));
+		},
+		//Metamask helper functions
+		_isMetamaskInstalled: function() {
+			const { ethereum } = window;
+			return Boolean(ethereum && ethereum.isMetaMask);
+		},
+		_connectMetamask: function() {},
+		_disconnectMetamask: function() {},
+		_installMetamask: function() {},
+		_setMetamaskInitConnectStatus: function (metamaskInstalled) {
+			if(metamaskInstalled === true) {
+				return "d"
+			} else {
+				return "i"
+			}
 		}
 	});
 });

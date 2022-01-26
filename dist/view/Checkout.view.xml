@@ -61,7 +61,7 @@
 												path : 'cartProducts>Price',
 												formatter : '.formatter.price'
 											}"
-											numberUnit="EUR"
+											numberUnit="USD"
 											press=".onEntryListPress"
 											iconDensityAware="false">
 											<firstStatus>
@@ -84,14 +84,14 @@
 											text="{
 												path : 'cartProducts>/cartEntries',
 												formatter : '.formatter.totalPrice'
-											} EUR"/>
+											} USD"/>
 									</contentRight>
 								</Bar>
 							</WizardStep>
 							<WizardStep
 								id="paymentTypeStep"
 								title="{i18n>checkoutPaymentTitle}"
-								subsequentSteps="creditCardStep, bankAccountStep, cashOnDeliveryStep"
+								subsequentSteps="creditCardStep, bankAccountStep, cashOnDeliveryStep, cryptoStep"
 								complete="goToPaymentStep"
 								icon="sap-icon://money-bills">
 								<Text
@@ -275,13 +275,24 @@
 						<!-- Metamask/Crypto mod start-->
 						<WizardStep
 							id="cryptoStep"
-							title="{i18n>checkoutCryptoitle}"
+							title="{i18n>checkoutCryptoTitle}"
 							nextStep="invoiceStep"
 							icon="sap-icon://official-service">
+							<Button id="walletConnect" text="Connect Wallet" press=".onMetamaskConnect" />
 							<Panel>
 								<layout:Grid
 									defaultSpan="L6 M6 S10"
 									hSpacing="2">
+									<ComboBox
+										items="{
+											path: '/Stablecoins',
+												sorter: { path: 'ticker' }
+										}">
+										<core:Item key="{contractid}" text="{ticker}" />
+									</ComboBox>
+									<Label 
+										text="Balance: 69.69"
+										design="Bold" />
 									<Label
 										text="{i18n>checkoutBankAccountName}"
 										design="Bold"/>
@@ -755,7 +766,7 @@
 											path : 'cartProducts>Price',
 											formatter : '.formatter.price'
 										}"
-										numberUnit="EUR"
+										numberUnit="USD"
 										press=".onEntryListPress"
 										iconDensityAware="false">
 										<firstStatus>

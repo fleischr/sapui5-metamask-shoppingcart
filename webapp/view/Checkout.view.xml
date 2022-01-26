@@ -61,7 +61,7 @@
 												path : 'cartProducts>Price',
 												formatter : '.formatter.price'
 											}"
-											numberUnit="EUR"
+											numberUnit="USD"
 											press=".onEntryListPress"
 											iconDensityAware="false">
 											<firstStatus>
@@ -84,7 +84,7 @@
 											text="{
 												path : 'cartProducts>/cartEntries',
 												formatter : '.formatter.totalPrice'
-											} EUR"/>
+											} USD"/>
 									</contentRight>
 								</Bar>
 							</WizardStep>
@@ -766,7 +766,7 @@
 											path : 'cartProducts>Price',
 											formatter : '.formatter.price'
 										}"
-										numberUnit="EUR"
+										numberUnit="USD"
 										press=".onEntryListPress"
 										iconDensityAware="false">
 										<firstStatus>
