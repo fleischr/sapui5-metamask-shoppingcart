@@ -278,7 +278,7 @@
 							title="{i18n>checkoutCryptoTitle}"
 							nextStep="invoiceStep"
 							icon="sap-icon://official-service">
-							<Button id="walletConnect" text="Connect Wallet" />
+							<Button id="walletConnect" text="Connect Wallet" press=".onMetamaskConnect" />
 							<Panel>
 								<layout:Grid
 									defaultSpan="L6 M6 S10"

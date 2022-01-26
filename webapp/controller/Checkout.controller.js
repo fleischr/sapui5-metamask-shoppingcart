@@ -33,11 +33,15 @@ sap.ui.define([
 		onInit: function () {
 			//check if metamask is installed
 			var isMetamaskInstalled = this._isMetamaskInstalled();
+			var metamaskConnectionStatus = this._setMetamaskInitConnectStatus(isMetamaskInstalled);
 			
 
 			var oModel = new JSONModel(
 				{
 					MetamaskInstalled: isMetamaskInstalled,
+					ConnectionStatus: metamaskConnectionStatus,
+					UserWalletAddress: "",
+					SelectedCryptoNetwork: "Kovan", //TODO add additional testnets/mainnets
 					SelectedPayment: "Credit Card",
 					SelectedDeliveryMethod: "Standard Delivery",
 					DifferentDeliveryAddress: false,
@@ -358,6 +362,13 @@ sap.ui.define([
 			this.getRouter().navTo("home");
 		},
 
+		/*
+		* 
+		*/
+		onMetamaskConnect: function () {
+			console.log("connecting metamask");
+		},
+
 		// *** the following functions are private "helper" functions ***
 
 		/**
@@ -454,9 +465,20 @@ sap.ui.define([
 			oNavContainer.attachAfterNavigate(_fnAfterNavigate);
 			oNavContainer.to(this.byId("wizardContentPage"));
 		},
+		//Metamask helper functions
 		_isMetamaskInstalled: function() {
 			const { ethereum } = window;
 			return Boolean(ethereum && ethereum.isMetaMask);
+		},
+		_connectMetamask: function() {},
+		_disconnectMetamask: function() {},
+		_installMetamask: function() {},
+		_setMetamaskInitConnectStatus: function (metamaskInstalled) {
+			if(metamaskInstalled === true) {
+				return "d"
+			} else {
+				return "i"
+			}
 		}
 	});
 });

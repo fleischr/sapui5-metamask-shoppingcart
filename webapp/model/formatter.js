@@ -93,6 +93,15 @@ sap.ui.define([
 				bCollection2Filled = !!(oCollection2 && Object.keys(oCollection2).length);
 
 			return bCollection1Filled || bCollection2Filled;
+		},
+
+		walletConnection(sConnectStatus) {
+			var mWalletConnectStatus = {
+				"i" : "Install Metamask",
+				"c"	: "Connect Wallet",
+				"d" : "Disconnect Wallet"
+			};
+			return mWalletConnectStatus[sConnectStatus] || "err";
 		}
 	};
 
