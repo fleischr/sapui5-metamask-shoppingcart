@@ -40,7 +40,7 @@ sap.ui.define([
 				{
 					MetamaskInstalled: isMetamaskInstalled,
 					ConnectionStatus: metamaskConnectionStatus,
-					UserWalletAddress: "",
+					UserWalletAddress: "0xsomething",
 					SelectedCryptoNetwork: "Kovan", //TODO add additional testnets/mainnets
 					SelectedPayment: "Credit Card",
 					SelectedDeliveryMethod: "Standard Delivery",
@@ -367,6 +367,15 @@ sap.ui.define([
 		*/
 		onMetamaskConnect: function () {
 			console.log("connecting metamask");
+			//I'll just start by copy-pasting from the metamask e2e test dapp
+			try {
+				const newAccounts = await ethereum.request({
+				  method: 'eth_requestAccounts',
+				});
+				this._handleNewAccounts(newAccounts);
+			  } catch (error) {
+				console.error(error);
+			} 
 		},
 
 		// *** the following functions are private "helper" functions ***
@@ -479,6 +488,18 @@ sap.ui.define([
 			} else {
 				return "i"
 			}
-		}
+		},
+		_handleNewAccounts: function (newAccounts) {
+			//accounts = newAccounts;
+			//accountsDiv.innerHTML = accounts;
+			//fromDiv.value = accounts;
+			//gasPriceDiv.style.display = 'block';
+			//maxFeeDiv.style.display = 'none';
+			//maxPriorityDiv.style.display = 'none';
+			//if (isMetaMaskConnected()) {
+			//  initializeAccountButtons();
+			//}
+			//updateButtons();
+		  }
 	});
 });

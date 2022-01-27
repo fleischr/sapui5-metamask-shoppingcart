@@ -47,7 +47,7 @@
 						path : 'Price',
 						formatter : '.formatter.price'
 					}"
-					numberUnit="EUR">
+					numberUnit="USD">
 				</ObjectListItem>
 				<ObjectStatus
 					class="sapUiSmallMarginBottom"

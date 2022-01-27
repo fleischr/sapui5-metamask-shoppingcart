@@ -20,8 +20,8 @@ sap.ui.define([
 				maxFractionDigits: 2,
 				minFractionDigits: 2,
 				groupingEnabled: true,
-				groupingSeparator: ".",
-				decimalSeparator: ","
+				groupingSeparator: ",",
+				decimalSeparator: "."
 			});
 			return numberFormat.format(sValue);
 		},
