@@ -279,7 +279,7 @@
 							nextStep="invoiceStep"
 							icon="sap-icon://official-service">
 							<Button id="walletConnect" text="Connect Wallet" press=".onMetamaskConnect" />
-							<Text text="/UserWalletAddress" />
+							<Text text="{/UserWalletAddress}" />
 							<Panel>
 								<layout:Grid
 									defaultSpan="L6 M6 S10"

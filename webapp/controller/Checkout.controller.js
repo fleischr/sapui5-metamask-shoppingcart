@@ -34,13 +34,17 @@ sap.ui.define([
 			//check if metamask is installed
 			var isMetamaskInstalled = this._isMetamaskInstalled();
 			var metamaskConnectionStatus = this._setMetamaskInitConnectStatus(isMetamaskInstalled);
-			
+			var selectedAddress = "Oxsomething";
+			if( metamaskConnectionStatus === 'c') {
+				selectedAddress = ethereum.selectedAddress;
+			}
 
 			var oModel = new JSONModel(
 				{
 					MetamaskInstalled: isMetamaskInstalled,
 					ConnectionStatus: metamaskConnectionStatus,
-					UserWalletAddress: "0xsomething",
+					UserWalletAddress: selectedAddress,
+					SelectedChainId: "",
 					SelectedCryptoNetwork: "Kovan", //TODO add additional testnets/mainnets
 					SelectedPayment: "Credit Card",
 					SelectedDeliveryMethod: "Standard Delivery",
@@ -365,13 +369,15 @@ sap.ui.define([
 		/*
 		* 
 		*/
-		onMetamaskConnect: function () {
+		onMetamaskConnect: async function () {
 			console.log("connecting metamask");
 			//I'll just start by copy-pasting from the metamask e2e test dapp
+		
 			try {
 				const newAccounts = await ethereum.request({
 				  method: 'eth_requestAccounts',
-				});
+				})
+			
 				this._handleNewAccounts(newAccounts);
 			  } catch (error) {
 				console.error(error);
@@ -484,12 +490,20 @@ sap.ui.define([
 		_installMetamask: function() {},
 		_setMetamaskInitConnectStatus: function (metamaskInstalled) {
 			if(metamaskInstalled === true) {
-				return "d"
+				if( typeof(ethereum.selectedAddress) === 'string' ) {
+					return "c";
+				}
+				return "d";
 			} else {
-				return "i"
+				return "i";
 			}
 		},
 		_handleNewAccounts: function (newAccounts) {
+			var oModelData = oModel.getData();
+			var userWallerAddress = newAccounts[0];
+			oModelData.ConnectionStatus = "c";
+			oModelData.UserWalletAddress = userWallerAddress;
+			oModel.setData(oModelData);
 			//accounts = newAccounts;
 			//accountsDiv.innerHTML = accounts;
 			//fromDiv.value = accounts;
