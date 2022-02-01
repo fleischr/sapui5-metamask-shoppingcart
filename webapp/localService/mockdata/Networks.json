@@ -1,0 +1,11 @@
+[
+    {
+        "ChainID" : "42",
+        "NetworkDescription" : "Kovan Test Network",
+        "BlockExplorerBaseURL" : "https://kovan.etherscan.io",
+        "IconPath" : "",
+        "isMainnet" : false,
+        "ParentMainnetChainID" : "1",
+        "GasToken" : "ETH"
+    }
+]

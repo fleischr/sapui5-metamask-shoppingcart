@@ -38,12 +38,14 @@ sap.ui.define([
 			if( metamaskConnectionStatus === 'c') {
 				selectedAddress = ethereum.selectedAddress;
 			}
+			var destinationAddress = "0xsomethingelse";
 
 			var oModel = new JSONModel(
 				{
 					MetamaskInstalled: isMetamaskInstalled,
 					ConnectionStatus: metamaskConnectionStatus,
 					UserWalletAddress: selectedAddress,
+					DestinationWalletAddress: destinationAddress,
 					SelectedChainId: "",
 					SelectedCryptoNetwork: "Kovan", //TODO add additional testnets/mainnets
 					SelectedPayment: "Credit Card",
