@@ -274,6 +274,27 @@ sap.ui.define([
 		},
 
 		/**
+		 * Changes the selected network for Metamask
+		 * @param {*} oEvent 
+		 */
+		onNetworkSelect: function (oEvent) {
+			//set selectedChainId - and other data from Networks.json. call select nework
+			//set SupportedAssets
+		},
+
+		/**
+		 * Detects the currently selected network in metamask
+		 */
+		detectSelectedNetwork: function() {
+			//error case
+			"Please select another network. Our default is Matic";
+		},
+
+		selectNetwork: function() {
+			//set selectedChainId - and other data from Networks.json. 
+		},
+
+		/**
 		 * Validates the credit card step initially and after each input
 		 */
 		checkCreditCardStep: function () {

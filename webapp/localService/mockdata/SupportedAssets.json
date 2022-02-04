@@ -1,0 +1,32 @@
+[
+    {
+        "AssetContract" : "",
+        "ChainID": "",
+        "isStablecoin" : false,
+        "RelatedCurrencyCode": "",
+        "Ticker": "ETH",
+        "Description" : "Ether",
+        "GasToken" : "Ethereum",
+        "isGasToken" : true
+    },
+    {
+        "AssetContract" : "",
+        "ChainID": "",
+        "isStablecoin" : false,
+        "RelatedCurrencyCode": "",
+        "Ticker": "ETH",
+        "Description" : "Ether",
+        "GasToken" : "Ethereum",
+        "isGasToken" : true
+    }
+    {
+        "AssetContract" : "",
+        "ChainID": "",
+        "isStablecoin" : false,
+        "RelatedCurrencyCode": "",
+        "Ticker": "ETH",
+        "Description" : "Ether",
+        "GasToken" : "Ethereum",
+        "isGasToken" : true
+    }
+]
