@@ -25,12 +25,18 @@ sap.ui.define([
 ], function (JSONModel, Device) {
 	"use strict";
 
-    var UI5web3Helper = {
-        getTokenBalance: function() {
+    //idk yet if const will reference npm modules in SAP GW, but for demo purposes - why not?
+    const ethers = require('ethers');
+    const provider = ethers.providers.InfuraProvider;
 
+    const genericErc20Abi = require(.../localService/contract/genericERC20.json);
+
+    var UI5web3Helper = {
+        getTokenBalance: function(contract) {
+            const balance = (await contract.balanceOf((await provider.getSigners())[0].address)).toString();
         },
-        getContract: function() {
-            
+        getContract: function(tokenContractAddress) {
+            return new ethers.Contract(tokenContractAddress, genericErc20Abi, provider);
         }        
     };
 
