@@ -8,7 +8,8 @@ sap.ui.define([
 	"sap/m/Link",
 	"sap/m/MessagePopover",
 	"sap/m/MessagePopoverItem",
-	"../model/EmailType"
+	"../model/EmailType",
+	"../model/web3helper"
 ], function (
 	BaseController,
 	cart,
@@ -19,7 +20,8 @@ sap.ui.define([
 	Link,
 	MessagePopover,
 	MessagePopoverItem,
-	EmailType) {
+	EmailType,
+	UI5web3Helper) {
 	"use strict";
 
 	return BaseController.extend("sap.ui.demo.cart.controller.Checkout", {
@@ -48,6 +50,8 @@ sap.ui.define([
 					DestinationWalletAddress: destinationAddress,
 					SelectedChainId: "",
 					SelectedCryptoNetwork: "Kovan", //TODO add additional testnets/mainnets
+					SelectedGasToken: "ETH", //could later be Matic, ADA, eGLD, or something else?
+					GasBalance: "0.0",
 					SelectedPayment: "Credit Card",
 					SelectedDeliveryMethod: "Standard Delivery",
 					DifferentDeliveryAddress: false,
@@ -109,6 +113,10 @@ sap.ui.define([
 					oReturnToShopButton.focus();
 				}
 			});
+		},
+
+		getGasBalance: function () {
+			return UI5web3Helper.getGasBalance();
 		},
 
 		/**

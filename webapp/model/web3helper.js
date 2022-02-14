@@ -26,17 +26,33 @@ sap.ui.define([
 	"use strict";
 
     //idk yet if const will reference npm modules in SAP GW, but for demo purposes - why not?
-    const ethers = require('ethers');
+    //const ethers = require('ethers'); 
     const provider = ethers.providers.InfuraProvider;
 
-    const genericErc20Abi = require(.../localService/contract/genericERC20.json);
+    //TODO fix how we load this ABI
+    //const genericErc20Abi = require(.../localService/contract/genericERC20.json);
+
+    var existingContracts = {};
 
     var UI5web3Helper = {
-        getTokenBalance: function(contract) {
-            const balance = (await contract.balanceOf((await provider.getSigners())[0].address)).toString();
+        getTokenBalance : function(contract) {
+            //TODO get the contract balance and convert to string 
+            //const balance = (await contract.balanceOf((await provider.getSigners())[0].address)).toString();
+            const balance = "1069";
+            return balance;
         },
-        getContract: function(tokenContractAddress) {
-            return new ethers.Contract(tokenContractAddress, genericErc20Abi, provider);
+        //getContract: function(tokenContractAddress) {
+       //    var requestedContract = new ethers.Contract(tokenContractAddress, genericErc20Abi, provider);
+       //     existingContracts[tokenContractAddress] = requestedContract;
+       //     return requestedContract;
+       // },
+        //reminder anytime you use await anywhere, you gotta have the function be async
+        getGasBalance : async function() {
+            const balance = await provider.getBalance("address");
+            return balance.toString();
+        },
+        getGasToken : function() {
+            return "ETH";
         }        
     };
 

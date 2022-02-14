@@ -27,7 +27,7 @@ sap.ui.define([
 				welcomeCarouselInviteFriend: 'sap/ui/demo/cart/img/InviteFriend_276352.jpg',
 				welcomeCarouselTablet: 'sap/ui/demo/cart/img/Tablet_275777.jpg',
 				welcomeCarouselCreditCard: 'sap/ui/demo/cart/img/CreditCard_277268.jpg',
-				welcomeShibaInu: 'sap/ui/demo/cart/img/shiba-inu-coin-banner-shib-coin-cryptocurrency-concept-banner-vector',
+				welcomeShibaInu: 'sap/ui/demo/cart/img/shiba-inu-coin-banner-shib-coin-cryptocurrency-concept-banner-vector.jpg',
 				Promoted: [],
 				Viewed: [],
 				Favorite: [],
