@@ -298,8 +298,20 @@ sap.ui.define([
 			"Please select another network. Our default is Matic";
 		},
 
+		/**
+		 * Allows user to select a different mainnet/L2/testnet
+		 */
 		selectNetwork: function() {
 			//set selectedChainId - and other data from Networks.json. 
+		},
+
+		setGasBalance: async function() {
+			var gasBalance = UI5web3Helper.getGasBalance();
+		},
+
+		setTokenBalance: async function (contractId) {
+			var tokenContract = UI5web3Helper.getContract(contractId);
+			var tokenBalance = UI5web3Helper.getTokenBalance(tokenContract);
 		},
 
 		/**

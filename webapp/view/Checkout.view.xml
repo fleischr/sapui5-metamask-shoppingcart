@@ -280,32 +280,40 @@
 							icon="sap-icon://official-service">
 							<Button id="walletConnect" text="Connect Wallet" press=".onMetamaskConnect" />
 							<Text text="{/UserWalletAddress}" />
-							<Panel>
-								<layout:Grid
-									defaultSpan="L6 M6 S10"
-									hSpacing="2">
-									<ComboBox
+							<ComboBox
 										items="{
 											path: '/Stablecoins',
 												sorter: { path: 'ticker' }
 										}">
 										<core:Item key="{contractid}" text="{ticker}" />
-									</ComboBox>
+							</ComboBox>
+							<Panel>
+								<layout:Grid
+									defaultSpan="L6 M6 S10"
+									hSpacing="2">
+									<Label
+										text="Selected Network"
+										design="Bold"/>
+									<Label text="Ethereum"/>
+									<Label
+										text="Your Wallet Address"
+										design="Bold"/>
+									<Label text="{/UserWalletAddress}"/>
+									<Label
+										text="Checkout Asset Balance"
+										design="Bold"/>
+									<Label text="1034.74 USDC"/>
 									<Label 
-										text="Balance: 69.69"
+										text="Gas Balance"
 										design="Bold" />
-									<Label
-										text="{i18n>checkoutBankAccountName}"
+									<Label text="69.69 ETH"/>
+									<Label text="Sending for checkout"
 										design="Bold"/>
-									<Label text="{i18n>beneficiaryNameText}"/>
+									<Label text="100 USDC + Estimated gas fee" />
 									<Label
-										text="{i18n>checkoutBankAccountBank}"
-										design="Bold"/>
-									<Label text="{i18n>bankNameText}"/>
-									<Label
-										text="{i18n>checkoutBankAccountNumber}"
-										design="Bold"/>
-									<Label text="{i18n>accountNumberText}"/>
+										text="Sending to"
+										design="Bold" />
+									<Label text="sapstore.eth" tooltip="0xsomethingelse"/>
 								</layout:Grid>
 							</Panel>
 						</WizardStep>

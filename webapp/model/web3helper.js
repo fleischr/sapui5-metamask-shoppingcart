@@ -35,10 +35,10 @@ sap.ui.define([
     var existingContracts = {};
 
     var UI5web3Helper = {
-        getTokenBalance : function(contract) {
+        getTokenBalance : async function(contract) {
             //TODO get the contract balance and convert to string 
-            //const balance = (await contract.balanceOf((await provider.getSigners())[0].address)).toString();
-            const balance = "1069";
+            const balance = (await contract.balanceOf((await provider.getSigners())[0].address)).toString();
+            //const balance = "1069";
             return balance;
         },
         //getContract: function(tokenContractAddress) {
