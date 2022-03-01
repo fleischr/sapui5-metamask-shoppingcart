@@ -279,14 +279,13 @@
 							nextStep="invoiceStep"
 							icon="sap-icon://official-service">
 							<Button id="walletConnect" text="Connect Wallet" press=".onMetamaskConnect" />
-							<Text text="{/UserWalletAddress}" />
-							<ComboBox
+							<!--<ComboBox
 										items="{
 											path: '/Stablecoins',
 												sorter: { path: 'ticker' }
 										}">
 										<core:Item key="{contractid}" text="{ticker}" />
-							</ComboBox>
+							</ComboBox>-->
 							<Panel>
 								<layout:Grid
 									defaultSpan="L6 M6 S10"
@@ -294,11 +293,21 @@
 									<Label
 										text="Selected Network"
 										design="Bold"/>
+									<ComboBox
+										id="supportedCryptoAssets"
+										items="{
+											path: '/Stablecoins',
+												sorter: { path: 'ticker' }
+										}"
+										change="onCryptoAssetSelect">
+										<core:Item key="{contractid}" text="{ticker}" />
+									</ComboBox>
 									<Label text="Ethereum"/>
 									<Label
 										text="Your Wallet Address"
 										design="Bold"/>
 									<Label text="{/UserWalletAddress}"/>
+									<Text text="" />
 									<Label
 										text="Checkout Asset Balance"
 										design="Bold"/>

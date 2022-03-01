@@ -1,13 +1,13 @@
 [
     {
-        "AssetContract" : "",
+        "AssetContract" : "0x6b175474e89094c44da98b954eedeac495271d0f",
         "ChainID": "",
-        "isStablecoin" : false,
+        "isStablecoin" : true,
         "RelatedCurrencyCode": "",
-        "Ticker": "ETH",
-        "Description" : "Ether",
+        "Ticker": "DAI",
+        "Description" : "DAI Stablecoin",
         "GasToken" : "Ethereum",
-        "isGasToken" : true
+        "isGasToken" : false
     },
     {
         "AssetContract" : "",

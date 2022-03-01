@@ -86,6 +86,10 @@ sap.ui.define([
 						{ticker: "DAI", contractid: "0xb"},
 						{ticker: "UST", contractid: "0xc"},
 						{ticker: "MIM", contractid: "0xd"}
+					],
+					//TODO load Networks.json
+					SupportedNetworks: [
+						{}
 					]
 				}),
 				oReturnToShopButton = this.byId("returnToShopButton");
@@ -312,6 +316,11 @@ sap.ui.define([
 		setTokenBalance: async function (contractId) {
 			var tokenContract = UI5web3Helper.getContract(contractId);
 			var tokenBalance = UI5web3Helper.getTokenBalance(tokenContract);
+		},
+
+		onCryptoAssetSelect: function (oEvent) {
+			var selectedCryptoAsset = this.byId("supportedCryptoAssets").getSelectedItems();
+			console.log('ur doing amazing sweetie');
 		},
 
 		/**

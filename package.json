@@ -1,9 +1,9 @@
 {
-  "name": "ShoppingCart",
+  "name": "CryptoShoppingCart",
   "private": true,
   "version": "1.0.0",
-  "author": "SAP SE",
-  "description": "UI5 Demo App - Shopping cart",
+  "author": "Ryan Fleischmann - forked from sample app by SAP SE",
+  "description": "UI5 Demo App - Shopping cart with Digital Assets",
   "scripts": {
     "start": "ui5 serve",
     "lint": "eslint webapp",
@@ -18,12 +18,14 @@
     "@openui5/sap.ui.layout": "^1",
     "@openui5/themelib_sap_fiori_3": "^1",
     "eth-sig-util": "^3.0.1",
-    "ethers": "^5.5.4"
+    "ethers": "^5.5.4",
+    "require": "^2.4.20"
   },
   "devDependencies": {
-    "@ui5/cli": "^2.14.3",
+    "@ui5/cli": "^2.14.6",
     "eslint": "^4.19.1",
     "grunt-openui5": "^0.18.2",
-    "rimraf": "^2.6.2"
+    "rimraf": "^2.6.2",
+    "ui5-tooling-modules": "^0.2.1"
   }
 }

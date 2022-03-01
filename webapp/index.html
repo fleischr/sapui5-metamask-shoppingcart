@@ -17,6 +17,7 @@
 		data-sap-ui-async="true"
 		data-sap-ui-oninit="module:sap/ui/demo/cart/initMockServer"
 		data-sap-ui-resourceroots='{
+			"shoppingcartdemo" : ".././",
 			"sap.ui.demo.cart" : "./",
 			"sap.ui.demo.mock": "./localService/mockdata",
 			"sap.ui.demo.contract": "./localService/contract"
@@ -27,7 +28,8 @@
 	<!-- Todo make this link work <script src="../node_modules/ethers/lib/ethers.js"></script>-->
 	<script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"
         type="application/javascript"></script>
-
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" type="application/javascript"></script>
+		
 </head>
 <body class='sapUiBody' id='content'>
 	<div data-sap-ui-component data-name="sap.ui.demo.cart" data-id="container" data-settings='{"id" : "cart"}'></div>

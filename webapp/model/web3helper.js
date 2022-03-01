@@ -19,9 +19,16 @@ const balance = (await contract.balanceOf((await provider.getSigners())[0].addre
 //SAPUI5's convention isn't to define dependencies through const = require, but rather through sap.ui.define and a promise 
 // see https://sapui5.hana.ondemand.com/sdk/#/api/sap.ui%23methods
 
+    //TODO fix how we load this ABI
+    //const genericErc20Abi = require("../localService/contract/genericERC20.json");
+    //const supportedNetworks = require("../localService/mockdata/Networks.json");
+
+
 sap.ui.define([
 	"sap/ui/model/json/JSONModel",
 	"sap/ui/Device"
+    //"shoppingcartdemo/node_modules/ethers",
+    //"shoppingcartdemo/node_modules/require"
 ], function (JSONModel, Device) {
 	"use strict";
 
@@ -29,23 +36,21 @@ sap.ui.define([
     //const ethers = require('ethers'); 
     const provider = ethers.providers.InfuraProvider;
 
-    //TODO fix how we load this ABI
-    //const genericErc20Abi = require(.../localService/contract/genericERC20.json);
-
     var existingContracts = {};
 
     var UI5web3Helper = {
+        genericERC20int : null,
         getTokenBalance : async function(contract) {
             //TODO get the contract balance and convert to string 
             const balance = (await contract.balanceOf((await provider.getSigners())[0].address)).toString();
             //const balance = "1069";
             return balance;
         },
-        //getContract: function(tokenContractAddress) {
-       //    var requestedContract = new ethers.Contract(tokenContractAddress, genericErc20Abi, provider);
-       //     existingContracts[tokenContractAddress] = requestedContract;
-       //     return requestedContract;
-       // },
+        getContract: function(tokenContractAddress) {
+           var requestedContract = new ethers.Contract(tokenContractAddress, genericErc20Abi, provider);
+            existingContracts[tokenContractAddress] = requestedContract;
+            return requestedContract;
+        },
         //reminder anytime you use await anywhere, you gotta have the function be async
         getGasBalance : async function() {
             const balance = await provider.getBalance("address");
@@ -53,7 +58,27 @@ sap.ui.define([
         },
         getGasToken : function() {
             return "ETH";
-        }        
+        },
+        getBlockExplorerLink: function(chainId, address, txnHash) {
+            return "https://etherscan.io";
+        } 
+        /*loadGenericERC20ABI : function() {
+            //const jsonModel = new JSONModel();
+            //await jsonModel.loadData(".../localService/contract/genericERC20.json");
+            $.ajax({
+                dataType: "json",
+                url: ".../localService/contract/genericERC20.json",
+                success: function(erc20interface) {
+                    this.genericERC20int = erc20interface;
+                }
+            });
+        },
+        getGenericERC20ABI : function () {
+            if (this.genericERC20int === null) {
+                 this.loadGenericERC20ABI();
+            }
+            return this.genericERC20int;
+        }*/
     };
 
     return UI5web3Helper;
