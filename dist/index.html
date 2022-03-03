@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Shopping Cart</title>
+
+	<!-- keep index.html mocked as well for consistency -->
+	<!-- METAMASK mod Adding contract data-->
+	<script
+		id='sap-ui-bootstrap'
+		src='../../../../../../resources/sap-ui-core.js'
+		data-sap-ui-theme='sap_fiori_3'
+		data-sap-ui-compatVersion="edge"
+		data-sap-ui-async="true"
+		data-sap-ui-oninit="module:sap/ui/demo/cart/initMockServer"
+		data-sap-ui-resourceroots='{
+			"shoppingcartdemo" : ".././",
+			"sap.ui.demo.cart" : "./",
+			"sap.ui.demo.mock": "./localService/mockdata",
+			"sap.ui.demo.contract": "./localService/contract"
+		}'>
+	</script>
+
+	<!-- Adding ethers here so it can be used globally in the app-->
+	<!-- Todo make this link work <script src="../node_modules/ethers/lib/ethers.js"></script>-->
+	<script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"
+        type="application/javascript"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" type="application/javascript"></script>
+		
+</head>
+<body class='sapUiBody' id='content'>
+	<div data-sap-ui-component data-name="sap.ui.demo.cart" data-id="container" data-settings='{"id" : "cart"}'></div>
+</body>
+</html>

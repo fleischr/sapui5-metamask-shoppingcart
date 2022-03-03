@@ -1,0 +1,6 @@
+/*!
+ * OpenUI5
+ * (c) Copyright 2009-2022 SAP SE or an SAP affiliate company.
+ * Licensed under the Apache License, Version 2.0 - see LICENSE.txt.
+ */
+sap.ui.define([],function(){"use strict";var t={apiVersion:2};t.render=function(t,e){t.openStart("div",e);t.class("selectWrapper");t.openEnd();t.openStart("a",e.getId()+"-filterBtn");t.class("filterBtn");t.attr("tabindex",0);t.openEnd();t.text("Filter");t.close("a");t.openStart("ul",e.getId()+"-optionsList");if(!e.getProperty("expanded")){t.style("display","none")}t.openEnd();this.renderDefaultOptions(t,e);this.renderOptions(t,e);t.close("ul");t.close("div")};t.renderOptions=function(t,e){var n=e.getOptions(),i=e.getChecked();n.forEach(function(e,n){t.openStart("li");t.openEnd("li");t.voidStart("input");if(i[n].value){t.attr("checked","true")}t.attr("type","checkbox");t.attr("index",n);t.voidEnd();t.text(e);t.close("li")})};t.renderDefaultOptions=function(t,e){e.getDefaultOptions().forEach(function(e){t.openStart("li");t.openEnd("li");t.openStart("a");t.attr("tabindex",0);t.class(e.key);t.openEnd();t.text(e.text);t.close("a");t.close("li")})};return t},true);

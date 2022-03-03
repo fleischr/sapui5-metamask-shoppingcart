@@ -1,0 +1,6 @@
+/*!
+ * OpenUI5
+ * (c) Copyright 2009-2022 SAP SE or an SAP affiliate company.
+ * Licensed under the Apache License, Version 2.0 - see LICENSE.txt.
+ */
+(function(e,t){"use strict";if(self.sap&&self.sap.ui&&typeof self.sap.ui.define==="function"){sap.ui.define(["sap/ui/thirdparty/URI"],t)}else if(typeof self.exports==="object"&&typeof self.exports.nodeName!=="string"){self.exports["ResourcesUtil"]=t()}else{e["ResourcesUtil"]=t()}})(self,function(e,t){"use strict";var i={getResourceOriginPath:function(t){var i,s=e(t),n=this.getResourcesVersion();if(s&&s.is("absolute")){return t}i=this.getConfig()||".";return i+n+this._formatPath(t)},getHasProxy:function(){return new window.URLSearchParams(window.location.search).get("sap-ui-xx-unifiedResources")!=null||window["sap-ui-unified-resources"]},getResourcesVersion:function(){return this.getHasProxy()&&window.sessionStorage.getItem("versionPrefixPath")||""},getConfig:function(){return self["sap-ui-documentation-config"]&&self["sap-ui-documentation-config"].demoKitResourceOrigin},_formatPath:function(e){e=e.replace(/^\.\//,"/");if(!e.match(/^\//)){e="/"+e}return e}};return i});

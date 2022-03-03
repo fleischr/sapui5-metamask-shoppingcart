@@ -1,0 +1,42 @@
+[
+    {
+        "ChainID" : "1",
+        "NetworkID" : "1",
+        "NetworkDescription" : "Ethereum Mainnet",
+        "BlockExplorerBaseURL" : "https://etherscan.io",
+        "IconPath" : "",
+        "isMainnet" : true,
+        "ParentMainnetChainID" : "1",
+        "GasToken" : "ETH"
+    },
+    {
+        "ChainID" : "42",
+        "NetworkID" : "42",
+        "NetworkDescription" : "Kovan Test Network",
+        "BlockExplorerBaseURL" : "https://kovan.etherscan.io",
+        "IconPath" : "",
+        "isMainnet" : false,
+        "ParentMainnetChainID" : "1",
+        "GasToken" : "ETH"
+    },
+    {
+        "ChainID" : "3",
+        "NetworkID" : "3",
+        "NetworkDescription" : "Ropsten Test Network",
+        "BlockExplorerBaseURL" : "https://ropsten.etherscan.io",
+        "IconPath" : "",
+        "isMainnet" : false,
+        "ParentMainnetChainID" : "1",
+        "GasToken" : "ETH"
+    },
+    {
+        "ChainID" : "4",
+        "NetworkID" : "4",
+        "NetworkDescription" : "Rinkeby Test Network",
+        "BlockExplorerBaseURL" : "https://rinkeby.etherscan.io",
+        "IconPath" : "",
+        "isMainnet" : false,
+        "ParentMainnetChainID" : "1",
+        "GasToken" : "ETH"
+    }
+]

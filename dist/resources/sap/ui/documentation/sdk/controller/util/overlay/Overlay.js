@@ -1,0 +1,6 @@
+/*!
+ * OpenUI5
+ * (c) Copyright 2009-2022 SAP SE or an SAP affiliate company.
+ * Licensed under the Apache License, Version 2.0 - see LICENSE.txt.
+ */
+sap.ui.define(["sap/base/Log","./shapes/ShapeFactory"],function(t,e){"use strict";var i="http://www.w3.org/2000/svg";function o(t){var e=document.createElementNS(i,"svg"),o=t.getBoundingClientRect(),n=o.width,s=o.height;e.setAttribute("viewBox","0 0 "+n+" "+s);e.setAttribute("class","overlay");t.appendChild(e);return e}function n(t){this.oContainer=o(t);this.oShapes={};this.sCurrentShapeType=""}n.prototype.setSize=function(t,e){this.oContainer.setAttribute("viewBox","0 0 "+t+" "+e)};n.prototype.setShape=function(t,i){var o=this.oShapes[t];if(!o){o=e.create(t,i);o.setPosition(i);this.oShapes[t]=o;this.oContainer.appendChild(o.oContainer)}else{o.setPosition(i)}this.sCurrentShapeType=t};n.prototype.getCurrentShape=function(){return this.oShapes[this.sCurrentShapeType]};n.prototype.show=function(){var t=this.getCurrentShape();if(t){t.show()}};n.prototype.hide=function(){var t=this.getCurrentShape();if(t){t.hide()}};return n});
