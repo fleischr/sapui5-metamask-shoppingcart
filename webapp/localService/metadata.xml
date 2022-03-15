@@ -90,6 +90,20 @@
 				<NavigationProperty Name="Product" Relationship="EPM_DEVELOPER_SCENARIO_SRV.FK_FeaturedProduct_Product" FromRole="FeaturedProduct" ToRole="Product"/>
 			</EntityType>
 
+			<EntityType Name="Network" sap:content-version="1" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+				<Key>
+					<PropertyRef Name="ChainID" />
+				</Key>
+				<Property Name="ChainID" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Chain ID"/>
+				<Property Name="NetworkID" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Network ID"/>
+				<Property Name="NetworkDescription" Type="Edm.String" Nullable="false" MaxLength="255" sap:label="Network Description"/>
+				<Property Name="BlockExplorerBaseURL" Type="Edm.String" Nullable="false" MaxLength="255" sap:label="Block Explorer URL"/>
+				<Property Name="IconPath" Type="Edm.String" Nullable="false" MaxLength="255" sap:label="Icon Path"/>
+				<Property Name="isMainnet" Type="Edm.Boolean" Nullable="false" sap:label="is Mainnet"/>
+				<Property Name="ParentMainnetChainID" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Parent Chain ID"/>
+				<Property Name="GasToken" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Gas Token"/>
+			</EntityType>
+
 
 			<Association Name="FK_ProductCategory_Product">
 				<End Role="Product" Type="EPM_DEVELOPER_SCENARIO_SRV.Product" Multiplicity="*"/>
@@ -130,6 +144,10 @@
 					xmlns:sap="http://www.sap.com/Protocols/SAPData"/>
 				<EntitySet Name="FeaturedProducts" EntityType="EPM_DEVELOPER_SCENARIO_SRV.FeaturedProduct"
 					sap:content-version="1"
+					xmlns:sap="http://www.sap.com/Protocols/SAPData"/>
+				<EntitySet Name="Network"
+					EntityType="EPM_DEVELOPER_SCENARIO_SRV.Network" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+					sap:pageable="false" sap:content-version="1"
 					xmlns:sap="http://www.sap.com/Protocols/SAPData"/>
 				<AssociationSet Name="EPM_DEVELOPER_SCENARIO_SRV.FK_ProductCategory_Product"
 					Association="EPM_DEVELOPER_SCENARIO_SRV.FK_ProductCategory_Product">
