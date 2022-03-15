@@ -34,7 +34,9 @@ sap.ui.define([
 
     //idk yet if const will reference npm modules in SAP GW, but for demo purposes - why not?
     //const ethers = require('ethers'); 
-    const provider = ethers.providers.InfuraProvider;
+    
+    //const provider = ethers.providers.InfuraProvider;
+    const provider = new ethers.providers.Web3Provider(window.ethereum); //inherits the provider from metamask
 
     var existingContracts = {};
 

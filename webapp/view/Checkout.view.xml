@@ -325,6 +325,82 @@
 									<Label text="sapstore.eth" tooltip="0xsomethingelse"/>
 								</layout:Grid>
 							</Panel>
+							<!--Lets try the credit type UI formatting-->
+							<!--	<form:SimpleForm
+								editable="true"
+								layout="ResponsiveGridLayout">
+								<Label
+									labelFor="networkSelection"
+									text="Selected Network"
+									required="true">
+									<layoutData>
+										<layout:GridData span="XL4 L4 M4 S12"/>
+									</layoutData>
+								</Label>
+								<Input
+									id="networkSelection"
+									placeholder="{i18n>creditCardHolderText}"
+									value="{
+										path: '/CreditCard/Name',
+										type: 'sap.ui.model.type.String',
+										constraints: {
+											minLength: 3,
+											search: '^[a-zA-Z]+[\\s]?[a-zA-Z]+$'
+										}
+									}"
+									change="onMainnetChange">
+									<layoutData>
+										<layout:GridData span="XL8 L8 M8 S12"/>
+									</layoutData>
+								</Input>
+								<Label
+									text="Wallet Address"
+									labelFor="walletAddress"
+									required="true">
+									<layoutData>
+										<layout:GridData span="XL4 L4 M4 S12"/>
+									</layoutData>
+								</Label>
+								<Text id="walletAddress" text="{/UserWalletAddress}"/>
+								<Label
+									text="Checkout Asset"
+									labelFor="supportedCryptoAssets"
+									required="true">
+									<layoutData>
+										<layout:GridData span="XL4 L4 M4 S12"/>
+									</layoutData>
+								</Label>
+								<ComboBox
+										id="supportedCryptoAssets"
+										items="{
+											path: '/Stablecoins',
+												sorter: { path: 'ticker' }
+										}"
+										change="onCryptoAssetSelect">
+										<core:Item key="{contractid}" text="{ticker}" />
+										<layoutData>
+											<layout:GridData span="XL4 L4 M4 S12"/>
+										</layoutData>
+								</ComboBox>
+								<Label text="Gas Balance">
+									<layoutData>
+										<layout:GridData span="XL4 L4 M4 S12"/>
+									</layoutData>
+								</Label>
+								<Text text="6.3 ETH">
+									<layoutData>
+										<layout:GridData span="XL8 L8 M8 S12"/>
+									</layoutData>
+								</Text>
+								<Label text="Sending for checkout"
+										design="Bold"/>
+								<Label text="100 USDC + Estimated gas fee" />
+								<Label
+										text="Sending to"
+										design="Bold" />
+								<Label text="sapstore.eth" tooltip="0xsomethingelse"/>
+							</form:SimpleForm>-->
+							<Button text="Send Payment" click="sendCryptoPayment" />
 						</WizardStep>
 						<!-- Metamask/Crypto mod end-->
 						<WizardStep

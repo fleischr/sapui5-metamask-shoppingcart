@@ -323,6 +323,10 @@ sap.ui.define([
 			console.log('ur doing amazing sweetie');
 		},
 
+		sendCryptoPayment: function (oEvent) {
+			console.log('send it!');
+		},
+
 		/**
 		 * Validates the credit card step initially and after each input
 		 */
@@ -425,15 +429,27 @@ sap.ui.define([
 			console.log("connecting metamask");
 			//I'll just start by copy-pasting from the metamask e2e test dapp
 		
+			//todo fix
 			try {
 				const newAccounts = await ethereum.request({
 				  method: 'eth_requestAccounts',
-				})
+				});
 			
 				this._handleNewAccounts(newAccounts);
 			  } catch (error) {
-				console.error(error);
+				console.error(error)
 			} 
+			
+			/*ethereum.request({ method: 'eth_requestAccounts' }).then(this._handleNewAccounts)
+			.catch((err) => {
+			  if (err.code === 4001) {
+				// EIP-1193 userRejectedRequest error
+				// If this happens, the user rejected the connection request.
+				console.log('Please connect to MetaMask.');
+			  } else {
+				console.error(err);
+			  }
+			)*/
 		},
 
 		// *** the following functions are private "helper" functions ***
@@ -551,6 +567,7 @@ sap.ui.define([
 			}
 		},
 		_handleNewAccounts: function (newAccounts) {
+			var oModel = this.getModel();
 			var oModelData = oModel.getData();
 			var userWallerAddress = newAccounts[0];
 			oModelData.ConnectionStatus = "c";
