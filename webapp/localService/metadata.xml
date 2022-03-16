@@ -104,6 +104,21 @@
 				<Property Name="GasToken" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Gas Token"/>
 			</EntityType>
 
+			<EntityType Name="SupportedAsset" sap:content-version="1" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+				<Key>
+					<PropertyRef Name="AssetContract" />
+					<PropertyRef Name="ChainID" />
+				</Key>
+				<Property Name="AssetContract" Type="Edm.String" Nullable="false" MaxLength="255" sap:label="Asset Contract"/>
+				<Property Name="ChainID" Type="Edm.String" Nullable="false" MaxLength="255" sap:label="Chain ID"/>
+				<Property Name="isStablecoin" Type="Edm.Boolean" Nullable="false" sap:label="is Stablecoin"/>
+				<Property Name="RelatedCurrencyCode" Type="Edm.String" Nullable="false" MaxLength="255" sap:label="Related Currency Code"/>
+				<Property Name="Ticker" Type="Edm.String" Nullable="false" MaxLength="255" sap:label="Ticker"/>
+				<Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="255" sap:label="Description"/>
+				<Property Name="GasToken" Type="Edm.Boolean" Nullable="false" sap:label="Gas Token"/>
+				<Property Name="isGasToken" Type="Edm.String" Nullable="false" MaxLength="255" sap:label="is Gas Token"/>
+			</EntityType>
+
 
 			<Association Name="FK_ProductCategory_Product">
 				<End Role="Product" Type="EPM_DEVELOPER_SCENARIO_SRV.Product" Multiplicity="*"/>
@@ -147,6 +162,10 @@
 					xmlns:sap="http://www.sap.com/Protocols/SAPData"/>
 				<EntitySet Name="Network"
 					EntityType="EPM_DEVELOPER_SCENARIO_SRV.Network" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+					sap:pageable="false" sap:content-version="1"
+					xmlns:sap="http://www.sap.com/Protocols/SAPData"/>
+				<EntitySet Name="SupportedAssets"
+					EntityType="EPM_DEVELOPER_SCENARIO_SRV.SupportedAssets" sap:creatable="false" sap:updatable="false" sap:deletable="false"
 					sap:pageable="false" sap:content-version="1"
 					xmlns:sap="http://www.sap.com/Protocols/SAPData"/>
 				<AssociationSet Name="EPM_DEVELOPER_SCENARIO_SRV.FK_ProductCategory_Product"

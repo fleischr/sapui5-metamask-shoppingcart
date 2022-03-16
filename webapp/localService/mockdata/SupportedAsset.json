@@ -1,0 +1,32 @@
+[
+    {
+        "AssetContract" : "0x6b175474e89094c44da98b954eedeac495271d0f",
+        "ChainID": "1",
+        "isStablecoin" : true,
+        "RelatedCurrencyCode": "USD",
+        "Ticker": "DAI",
+        "Description" : "DAI Stablecoin",
+        "GasToken" : "Ethereum",
+        "isGasToken" : false
+    },
+    {
+        "AssetContract" : "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "ChainID": "1",
+        "isStablecoin" : true,
+        "RelatedCurrencyCode": "",
+        "Ticker": "USDC",
+        "Description" : "Circle USD",
+        "GasToken" : "Ethereum",
+        "isGasToken" : false
+    },
+    {
+        "AssetContract" : "0xa47c8bf37f92aBed4A126BDA807A7b7498661acD",
+        "ChainID": "1",
+        "isStablecoin" : true,
+        "RelatedCurrencyCode": "USD",
+        "Ticker": "UST",
+        "Description" : "Terra UST",
+        "GasToken" : "Ethereum",
+        "isGasToken" : false
+    }
+]
